@@ -13,6 +13,11 @@ import UIKit
     
     /** 单例 */
     fileprivate static let _theInstance: commonRoute = commonRoute()
+    
+    /**
+     * @函数说明    单例函数
+     * @返回数据    单例
+     */
     @objc public static func sharedInstance() -> commonRoute {
         return _theInstance;
     }
@@ -30,7 +35,12 @@ import UIKit
         self._cachedTargetDict = nil
     }
     
-    // MARK: - 远程App调用入口
+    /**
+     * @函数说明    远程App调用入口
+     * @输入参数    url: 需要传入的url类型
+     * @输入参数    completionHandler: 完成回调,参数字典中"result"为实际执行方法的返回值
+     * @返回数据    实际执行方法的返回值
+     */
     @objc open func performActionWithUrl(url:NSURL, completionHandler:(NSDictionary) -> Void) -> Any?{
         /** 获取参数(字典) */
         let params = NSMutableDictionary()
